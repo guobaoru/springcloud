@@ -1,0 +1,4 @@
+使用eureka集群需要配置host映射
+127.0.0.1 eureka00.cn
+127.0.0.1 eureka01.cn
+127.0.0.1 eureka02.cn
