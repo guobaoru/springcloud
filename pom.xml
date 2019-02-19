@@ -18,6 +18,7 @@
         <module>eureka2</module>
         <module>eureka2</module>
         <module>eureka3</module>
+        <module>power1</module>
     </modules>
 
     <parent>

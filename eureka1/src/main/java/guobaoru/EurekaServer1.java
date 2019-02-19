@@ -1,4 +1,4 @@
-package eureka;
+package guobaoru;
 
 
 import org.springframework.boot.SpringApplication;

@@ -12,6 +12,7 @@
         <module name="eureka3" />
         <module name="order" />
         <module name="power" />
+        <module name="power1" />
         <module name="user" />
         <module name="user1" />
       </profile>
