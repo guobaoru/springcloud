@@ -15,3 +15,11 @@ eureka:
 spring:
   application:
     name: client-user #此实例注册到eureka服务端的name
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2500

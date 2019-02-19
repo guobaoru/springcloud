@@ -11,7 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class PowerController {
 
     @RequestMapping("/getPower.do")
-    public String getPower() {
+    public String getPower() throws Exception {
+
+//        /**
+//         * 调试服务降级
+//         */
+//        throw new Exception("test");
+
+        /**
+         * hystrix 默认超时配置 1000ms ，所以睡眠2秒可触发降级
+         */
+        Thread.sleep(2000);
 
         return "power1!";
     }

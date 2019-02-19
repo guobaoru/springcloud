@@ -1,6 +1,7 @@
 package com.guobaoru.controller;
 
 import com.guobaoru.remote.PowerFeignClient;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,18 +23,25 @@ public class UserController {
 
     private final String SERVER_NAME = "http://server-power";
 
-    @RequestMapping("/getUser")
+    @RequestMapping("/getPower")
+    @HystrixCommand(fallbackMethod = "getPowerFullback")
     public String getUser() {
-
         return restTemplate.getForObject(SERVER_NAME + "/getPower.do", String.class);
-
     }
 
-    @RequestMapping("/getPowerPower")
+
+    @RequestMapping("/getFeignPower")
+    @HystrixCommand(fallbackMethod = "getPowerFullback")
     public String getFeignPower() {
-
         return powerFeignClient.getPower();
+    }
 
+    /**
+     * 服务降级方法
+     * @return
+     */
+    public String getPowerFullback() {
+        return "降级中...";
     }
 
 }

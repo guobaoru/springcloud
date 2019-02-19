@@ -15,8 +15,6 @@
         <module>eureka</module>
         <module>user1</module>
         <module>eureka1</module>
-        <module>eureka2</module>
-        <module>eureka2</module>
         <module>eureka3</module>
         <module>power1</module>
     </modules>
