@@ -1,5 +1,6 @@
 server:
   port: 5000
+#  --------------------------------------------------------服务注册、发现------------------------------------------------------------------
 eureka:
   client:
     serviceUrl:
@@ -16,10 +17,21 @@ spring:
   application:
     name: client-user #此实例注册到eureka服务端的name
 
+#  --------------------------------------------------------服务降级、熔断------------------------------------------------------------------
+feign:
+  hystrix:
+    enabled: true #feign 默认是支持hystrix的， 但是在Spring - cloud Dalston 版本之后就默认关闭了
+
+# （降级：仍会尝试调用服务，失败进入降级方法； 熔断：不会去尝试调用远程服务，直接进入降级方案,但默认会有5s的时间间隔尝试调用远程服务（半开状态），查看服务是否恢复）
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 2500
+            timeoutInMilliseconds: 5000  # 请求超时5秒，则进行降级 - 降级配置
+      # 熔断配置
+      circuitBreaker:
+        requestVolumeThreshold: 5   # 一定时间内发生5次降级，自动熔断
+#        sleepWindowInMilliseconds: 10000   # 上述指的 一定时间 ，默认10s 即 10s内5次服务请求异常，则发生熔断
+

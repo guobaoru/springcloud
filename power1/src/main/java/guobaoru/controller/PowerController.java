@@ -21,7 +21,7 @@ public class PowerController {
         /**
          * hystrix 默认超时配置 1000ms ，所以睡眠2秒可触发降级
          */
-        Thread.sleep(2000);
+        Thread.sleep(4000);
 
         return "power1!";
     }
