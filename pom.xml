@@ -17,6 +17,7 @@
         <module>eureka1</module>
         <module>eureka3</module>
         <module>power1</module>
+        <module>zuul</module>
     </modules>
 
     <parent>

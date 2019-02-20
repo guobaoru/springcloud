@@ -1,0 +1,10 @@
+eureka-url
+http://eureka00.cn:3000/
+http://eureka01.cn:3001/
+http://eureka03.cn:3003/
+
+user-url
+http://localhost:5000/getFeignPower
+
+zuul-url
+http://localhost:9000/user/getFeignPower

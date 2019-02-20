@@ -15,6 +15,7 @@
         <module name="power1" />
         <module name="user" />
         <module name="user1" />
+        <module name="zuul" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
