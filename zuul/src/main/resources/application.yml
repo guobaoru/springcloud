@@ -35,4 +35,8 @@ zuul:
     myuser:
       serviceId: client-user
       path: /user/**
+  # 服务路径访问前缀
+  prefix: /api
+  # 过滤器中取uri时，加上上述前缀api，默认为true，不加
+#  strip-prefix: false
 

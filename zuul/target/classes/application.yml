@@ -1,7 +1,7 @@
 server:
   port: 9000
 
-# zuul 作为 eureka client 注册进来
+# ---------------------------------------zuul 作为 eureka client 注册进来-----------------------------------------------------
 eureka:
   client:
     serviceUrl:
@@ -18,12 +18,25 @@ spring:
   application:
     name: zuul #此实例注册到eureka服务端的name
 
+# --------------------------------------------------zuul 配置----------------------------------------------------------------
 zuul:
+
+  # 禁用路径中使用，不配置则使用微服务名称进行访问
+  ignored-services: "server-power"
+  # 禁用所有为服务名使用
+#  ignored-services: "*"
+
   routes:
+    # 配置微服务名server-power映射在路径中的path，避免为服务名暴露于路径
     mypower:
       serviceId: server-power
+      # ** 代表可访问下面所有路径 * 只可以访问一层路径
       path: /power/**
     myuser:
       serviceId: client-user
       path: /user/**
+  # 服务路径访问前缀
+  prefix: /api
+  # 过滤器中取uri时，加上上述前缀api，默认为true，不加
+#  strip-prefix: false
 

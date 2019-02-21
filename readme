@@ -7,4 +7,4 @@ user-url
 http://localhost:5000/getFeignPower
 
 zuul-url
-http://localhost:9000/user/getFeignPower
+http://localhost:9000/api/user/getFeignPower
