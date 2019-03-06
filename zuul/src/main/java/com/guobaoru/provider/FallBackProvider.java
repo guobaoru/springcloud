@@ -20,15 +20,25 @@ import java.io.InputStream;
  */
 @Component
 public class FallBackProvider implements FallbackProvider {
+
+    /**
+     * 制定为哪个微服务提供回退（这里写微服务名 写*代表所有微服务）
+     * @return
+     */
     @Override
     public String getRoute() {
         return "client-user";
     }
 
+    /**
+     * 这里可以判断根据不同的异常来做不同的处理， 也可以不判断
+     * 完了之后调用response方法并根据异常类型传入HttpStatus
+     * @param route
+     * @param cause
+     * @return
+     */
     @Override
     public ClientHttpResponse fallbackResponse(String route, Throwable cause) {
-        //这里可以判断根据不同的异常来做不同的处理， 也可以不判断
-        //完了之后调用response方法并根据异常类型传入HttpStatus
         if (cause instanceof HystrixTimeoutException) {
             return response(HttpStatus.GATEWAY_TIMEOUT);
         } else {

@@ -46,6 +46,7 @@ public class UserController {
             /**
              * 限流配置，也可在配置文件中配置
              * 当有 coreSize 个线程同时访问时，其他线程被限流
+             * maxQueueSize 允许储存超出的线程数
             */
           threadPoolKey = "power"
           , threadPoolProperties = {
