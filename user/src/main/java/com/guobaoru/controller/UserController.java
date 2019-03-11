@@ -25,18 +25,19 @@ public class UserController {
     private final String SERVER_NAME = "http://server-power";
 
     @RequestMapping("/getPower")
-    @HystrixCommand(fallbackMethod = "getPowerFullback"  // 降级、熔断配置
-            /**
-             * 限流配置，也可在配置文件中配置
-             * 当有 coreSize 个线程同时访问时，其他线程被限流
-            */
-            , threadPoolKey = "power"
-            , threadPoolProperties = {
-            @HystrixProperty(name = "coreSize", value = "2")
-            , @HystrixProperty(name = "maxQueueSize", value = "1")
-    }
-    )
+//    @HystrixCommand(fallbackMethod = "getPowerFullback"  // 降级、熔断配置
+//            /**
+//             * 限流配置，也可在配置文件中配置
+//             * 当有 coreSize 个线程同时访问时，其他线程被限流
+//            */
+//            , threadPoolKey = "power"
+//            , threadPoolProperties = {
+//            @HystrixProperty(name = "coreSize", value = "2")
+//            , @HystrixProperty(name = "maxQueueSize", value = "1")
+//            }
+//    )
     public String getUser() {
+        System.out.println("进入方法调用...");
         return restTemplate.getForObject(SERVER_NAME + "/getPower.do", String.class);
     }
 
@@ -48,14 +49,14 @@ public class UserController {
              * 当有 coreSize 个线程同时访问时，其他线程被限流
              * maxQueueSize 允许储存超出的线程数
             */
-          threadPoolKey = "power"
-          , threadPoolProperties = {
-                    @HystrixProperty(name = "coreSize", value = "2")
-                    , @HystrixProperty(name = "maxQueueSize", value = "1")
-            }
+//          threadPoolKey = "power"
+//          , threadPoolProperties = {
+//                    @HystrixProperty(name = "coreSize", value = "2")
+//                    , @HystrixProperty(name = "maxQueueSize", value = "1")
+//            }
     )
     public String getFeignPower() {
-        System.out.println("进入方法调用...");
+        System.out.println("进入feign方法调用...");
         return powerFeignClient.getPower();
     }
 

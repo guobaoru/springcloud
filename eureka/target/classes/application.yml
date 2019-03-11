@@ -1,8 +1,9 @@
 server:
-  port: 3000
+              port: 3000
 eureka:
   server:
-    enable-self-preservation: false  #关闭自我保护机制
+    # 关闭自我保护机制 (自我保护机制默认开启，当server端监测心跳失败达到指定阈值时，自我保护机制会将这些实例保护起来，让这些实例不会过期。一旦开启了保护机制，则服务注册中心维护的服务实例就不是那么准确了)
+    enable-self-preservation: false
     # server清理宕机的client是根据client端发送的信息（client端宕机会发送宕机消息），该参数为server清理的间隔时间
     eviction-interval-timer-in-ms: 4000 #设置清理间隔（单位：毫秒 默认是60*1000）
   instance:

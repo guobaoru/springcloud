@@ -22,7 +22,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
         @RibbonClient(name = "server-power", configuration = PowerServerConfig.class)
 })
 
-@EnableFeignClients  //(basePackages = {"com.guobaoru.remote"})
+@EnableFeignClients(basePackages = {"com.guobaoru.remote"})
 @EnableHystrix
 public class UserClient {
     public static void main(String[] args) {

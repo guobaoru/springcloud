@@ -2,6 +2,8 @@ package config;
 
 import com.guobaoru.irule.MyRule;
 import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
+import com.netflix.loadbalancer.RoundRobinRule;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,12 +15,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PowerServerConfig {
 
-    @Bean
-    public IRule iRule () {
-        /**
-         * 重写负载算法（实现使用RandomRule内部实现，可自行定制逻辑）
-         */
-        return new MyRule();
-    }
+//    @Bean
+//    public IRule iRule () {
+//        /**
+//         * 重写负载算法（实现使用RandomRule内部实现，可自行定制逻辑）
+//         */
+//        return new RandomRule();
+//    }
+
+
 
 }

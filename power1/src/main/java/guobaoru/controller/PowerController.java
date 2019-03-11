@@ -18,11 +18,11 @@ public class PowerController {
 //         */
 //        throw new Exception("test");
 
-        /**
-         * hystrix 默认超时配置 1000ms ，所以睡眠2秒可触发降级
-         */
-        Thread.sleep(4000);
-
+//        /**
+//         * hystrix 默认超时配置 1000ms ，所以睡眠2秒可触发降级
+//         */
+//        Thread.sleep(10000);
+//
         return "power1!";
     }
 

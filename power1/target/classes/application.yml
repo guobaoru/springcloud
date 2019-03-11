@@ -8,9 +8,9 @@ eureka:
 
     instance-id: power-1 #此实例注册到eureka服务端的唯一的实例ID
     prefer-ip-address: true #是否显示IP地址
-    # 每10秒发送一次心跳，超过30秒没有推动心跳，告知server，我已经挂掉了，可以清理
-    leaseRenewalIntervalInSeconds: 10 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
-    leaseExpirationDurationInSeconds: 30 #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
+    # 每5秒发送一次心跳，超过10秒没有推动心跳，告知server，我已经挂掉了，可以清理
+    leaseRenewalIntervalInSeconds: 5 #eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒 (与下面配置的单位都是秒)
+    leaseExpirationDurationInSeconds: 10 #Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
 
 spring:
   application:
